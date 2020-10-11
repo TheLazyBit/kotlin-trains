@@ -10,9 +10,9 @@ typealias TwoTrackInput<IN, FAILURE, OUT> = (Either<FAILURE, IN>) -> OUT
 typealias TwoTrackOutput<IN, FAILURE, OUT> = (IN) -> Either<FAILURE, OUT>
 typealias SwitchFunction<IN, FAILURE, OUT> = TwoTrackOutput<IN, FAILURE, OUT>
 typealias TwoTrackFunction<IN, FAILURE, OUT, NEW_FAILURE> = (Either<FAILURE, IN>) -> Either<NEW_FAILURE, OUT>
-typealias Success<T> = () -> Either.Right<T>
-typealias Failure<T> = () -> Either.Left<T>
-typealias Value<L, R> = () -> Either<L, R>
+typealias Value<L, R> = SwitchFunction<Unit, L, R>
+typealias Success<T> = Value<Nothing, T>
+typealias Failure<T> = Value<T, Nothing>
 
 
 /**
@@ -92,12 +92,12 @@ fun <IN, FAILURE, OUT, NEW_FAILURE, NEW_OUT>TwoTrackOutput<IN, FAILURE, OUT>.map
 /**
  * Turn a value into a [SwitchFunction] on the success track
  */
-fun <IN> success(value: IN): SwitchFunction<Unit, Nothing, IN> = { right(value) }
+fun <IN> success(value: IN): Success<IN> = { right(value) }
 
 /**
  * Turn a value into a [SwitchFunction] on the failure track
  */
-fun <IN> failure(value: IN): SwitchFunction<Unit, IN, Nothing> = { left(value) }
+fun <IN> failure(value: IN): Failure<IN> = { left(value) }
 
 /**
  * Functions with [Unit] as the only parameter can be called without any parameters
