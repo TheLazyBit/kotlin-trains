@@ -1,6 +1,0 @@
-$dokka.format:jekyll-v1
-$dokka.linkExtension:md
-
-net.lazy_bit.kotlin_train.mondas
-net.lazy_bit.kotlin_train.tracks
-

@@ -1,6 +1,0 @@
-$dokka.format:html-v1
-$dokka.linkExtension:html
-
-net.lazy_bit.kotlin_train.mondas
-net.lazy_bit.kotlin_train.tracks
-
