@@ -1,3 +1,6 @@
+@file:Suppress("unused")
+@file:JvmName("EitherUtils")
+
 package net.lazy_bit.kotlin_train.mondas
 
 /**

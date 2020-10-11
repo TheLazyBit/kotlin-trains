@@ -1,4 +1,5 @@
 @file:Suppress("unused")
+@file:JvmName("AdapterRails")
 
 package net.lazy_bit.kotlin_train.tracks
 
