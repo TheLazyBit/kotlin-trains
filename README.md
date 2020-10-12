@@ -16,3 +16,6 @@ Functions or rather plain functions are standard single valued Functions A -> B
 
 #### Adapters
 Adapters transform plain functions into tracked functions and allows the composition of rail pieces.
+
+## TODO
+Redefine Either as a function that takes a success / failure function
